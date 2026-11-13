@@ -16,16 +16,9 @@ follow its progress and surface useful changes.
 
 The **offline synthetic demo** makes the important distinctions visible:
 
-```mermaid
-flowchart TD
-    A["Receipt → shipment notice<br/>Save quietly, then track"]
-    B["Carrier arrival → warehouse registration<br/>Separate evidence; the order stays open"]
-    C["Forwarding → final delivery<br/>Track the onward parcel, then close"]
-    A --> B --> C
-    style A fill:#e7f5ee,stroke:#2f765a,color:#173a2b
-    style B fill:#fff3d9,stroke:#996b19,color:#513b14
-    style C fill:#e7f5ee,stroke:#2f765a,color:#173a2b
-```
+<p align="center">
+  <img src="assets/workflow.svg" width="560" alt="Synthetic workflow: save a receipt quietly and track shipment; distinguish carrier arrival from warehouse registration; track forwarding and close only after final delivery.">
+</p>
 
 Warehouse arrival is not registration or final delivery. Repeated observations
 do not create repeat alerts; uncertain sends remain held.

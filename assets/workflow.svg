@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="320" viewBox="0 0 560 320" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic package workflow</title>
+  <desc id="desc">Three phases: save the receipt and track shipment; distinguish carrier arrival from warehouse registration; track the onward parcel and close after final delivery.</desc>
+  <g fill="none" stroke="#547568" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M280 90v18m-5-5 5 5 5-5M280 204v18m-5-5 5 5 5-5"/>
+  </g>
+  <rect x="4" y="4" width="552" height="86" rx="12" fill="#e7f5ee" stroke="#83ae98"/>
+  <rect x="4" y="118" width="552" height="86" rx="12" fill="#fff3d9" stroke="#c9a55c"/>
+  <rect x="4" y="232" width="552" height="84" rx="12" fill="#e7f5ee" stroke="#83ae98"/>
+  <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">
+    <g font-size="26" font-weight="600">
+      <text x="280" y="40" fill="#173a2b">Receipt → shipment</text>
+      <text x="280" y="154" fill="#513b14">Carrier arrival → registration</text>
+      <text x="280" y="268" fill="#173a2b">Forwarding → final delivery</text>
+    </g>
+    <g font-size="22">
+      <text x="280" y="70" fill="#335346">Save quietly, then start tracking.</text>
+      <text x="280" y="184" fill="#644d23">Two sources. The order stays open.</text>
+      <text x="280" y="298" fill="#335346">Track the onward parcel, then close.</text>
+    </g>
+  </g>
+</svg>
