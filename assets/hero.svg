@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="270" viewBox="0 0 1000 270" role="img" aria-labelledby="title desc">
+  <title id="title">Less remembering. More follow-through.</title>
+  <desc id="desc">Assistant Showcase. An envelope connects to a checklist, illustrating turning incoming information into useful follow-through.</desc>
+  <rect width="1000" height="270" rx="20" fill="#142d2a"/>
+  <path d="M650 0v270M750 0v270M850 0v270M950 0v270M620 70h380M620 170h380" stroke="#24403c"/>
+  <circle cx="888" cy="80" r="122" fill="#1b3732"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="42" y="119" fill="#f7f6eb" font-size="58" font-weight="700" letter-spacing="-2">Less remembering.</text>
+    <text x="42" y="185" fill="#c5edb8" font-size="58" font-weight="700" letter-spacing="-2">More follow-through.</text>
+  </g>
+  <g fill="none" stroke="#c5edb8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="702" y="62" width="86" height="61" rx="9" fill="#24483e"/>
+    <path d="m705 69 40 31 40-31"/>
+    <path d="M745 137v34q0 15 15 15h47" stroke-dasharray="5 7"/>
+    <path d="m801 180 8 6-8 6"/>
+    <rect x="831" y="117" width="103" height="111" rx="12" fill="#24483e"/>
+    <path d="m850 148 5 5 10-12m-15 32 5 5 10-12m-15 32 5 5 10-12"/>
+    <path d="M878 148h35m-35 25h35m-35 25h25" stroke="#91b7a4"/>
+  </g>
+</svg>
