@@ -18,15 +18,13 @@ The **offline synthetic demo** makes the important distinctions visible:
 
 ```mermaid
 flowchart TD
-    A[Order receipt: save quietly] --> B[Shipment notice: start tracking]
-    B --> C[Carrier arrival: at the warehouse]
-    C --> D[Warehouse email: registered in storage]
-    D --> E[Forwarding notice: track the onward parcel]
-    E --> F[Final delivery: close tracking]
+    A["Receipt → shipment notice<br/>Save quietly, then track"]
+    B["Carrier arrival → warehouse registration<br/>Separate evidence; the order stays open"]
+    C["Forwarding → final delivery<br/>Track the onward parcel, then close"]
+    A --> B --> C
     style A fill:#e7f5ee,stroke:#2f765a,color:#173a2b
-    style C fill:#fff3d9,stroke:#996b19,color:#513b14
-    style D fill:#fff3d9,stroke:#996b19,color:#513b14
-    style F fill:#e7f5ee,stroke:#2f765a,color:#173a2b
+    style B fill:#fff3d9,stroke:#996b19,color:#513b14
+    style C fill:#e7f5ee,stroke:#2f765a,color:#173a2b
 ```
 
 Warehouse arrival is not registration or final delivery. Repeated observations
