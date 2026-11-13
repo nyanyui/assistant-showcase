@@ -1,0 +1,54 @@
+{
+  "notice": "Entirely fictional teaching data. These pre-structured observations stand in for email extraction, order matching, source interpretation and short-name selection. No real emails, people, purchases, tracking numbers or assistant records are included.",
+  "schema_version": 1,
+  "observations": [
+    {
+      "id": "observation-order",
+      "order_id": "order-lumen",
+      "kind": "order_confirmation",
+      "source_kind": "retailer_email",
+      "source_url": "https://example.invalid/mail/order-confirmation",
+      "facts": {"order_name": "Lumen Studio order"}
+    },
+    {
+      "id": "observation-shipped",
+      "order_id": "order-lumen",
+      "kind": "shipment",
+      "source_kind": "retailer_email",
+      "source_url": "https://example.invalid/mail/shipment-confirmation",
+      "facts": {"tracking_ref": "tracking-demo-inbound", "destination": "forwarding_warehouse"}
+    },
+    {
+      "id": "observation-carrier-warehouse",
+      "order_id": "order-lumen",
+      "kind": "carrier_delivery",
+      "source_kind": "carrier_tracking",
+      "source_url": "https://example.invalid/tracking/inbound-arrival",
+      "facts": {"tracking_ref": "tracking-demo-inbound", "destination": "forwarding_warehouse"}
+    },
+    {
+      "id": "observation-warehouse-registered",
+      "order_id": "order-lumen",
+      "kind": "warehouse_registration",
+      "source_kind": "warehouse_email",
+      "source_url": "https://example.invalid/mail/storage-registration",
+      "facts": {"warehouse_ref": "storage-demo-lumen"}
+    },
+    {
+      "id": "observation-forwarded",
+      "order_id": "order-lumen",
+      "kind": "shipment",
+      "source_kind": "warehouse_email",
+      "source_url": "https://example.invalid/mail/forwarding-confirmation",
+      "facts": {"tracking_ref": "tracking-demo-final", "destination": "final_destination"}
+    },
+    {
+      "id": "observation-final-delivery",
+      "order_id": "order-lumen",
+      "kind": "carrier_delivery",
+      "source_kind": "carrier_tracking",
+      "source_url": "https://example.invalid/tracking/final-delivery",
+      "facts": {"tracking_ref": "tracking-demo-final", "destination": "final_destination"}
+    }
+  ]
+}

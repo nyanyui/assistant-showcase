@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.demo-state/
+.venv/
+.env
+.env.*
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+*.db
