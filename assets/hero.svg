@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="238" viewBox="0 0 900 238" role="img" aria-labelledby="title desc">
-  <title id="title">Assistant Showcase: Arrived is not delivered</title>
-  <desc id="desc">An ink-black banner with cobalt detailing. Three parcel milestones progress from an outlined arrival point, through registration, to confirmed delivery.</desc>
+  <title id="title">Assistant Showcase: Help before I ask. Act only within scope.</title>
+  <desc id="desc">An ink-black banner with cobalt detailing. A signal travels across a bounded path to a checked decision.</desc>
   <defs>
     <linearGradient id="back" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
       <stop stop-color="#080b13"/>
@@ -21,9 +21,9 @@
     <path d="M42 37h34" fill="none" stroke="#6bb4ff" stroke-width="3"/>
     <g font-family="system-ui, Segoe UI, Arial, sans-serif">
       <text x="89" y="43" fill="#a6caff" font-size="17" font-weight="700" letter-spacing="2">ASSISTANT SHOWCASE</text>
-      <text x="41" y="114" fill="#f4f7ff" font-size="53" font-weight="750" letter-spacing="-2">Arrived is not</text>
-      <text x="41" y="169" fill="#8cc9ff" font-size="53" font-weight="750" letter-spacing="-2">delivered.</text>
-      <text x="44" y="207" fill="#c3d2ee" font-size="22">A personal agent that follows through.</text>
+      <text x="41" y="114" fill="#f4f7ff" font-size="51" font-weight="750" letter-spacing="-2">Help before I ask.</text>
+      <text x="41" y="169" fill="#8cc9ff" font-size="51" font-weight="750" letter-spacing="-2">Act only within scope.</text>
+      <text x="44" y="207" fill="#c3d2ee" font-size="22">A personal agent for trust and anticipation.</text>
     </g>
     <path d="M648 121h92" stroke="#6293fa" stroke-width="2" stroke-dasharray="5 7"/>
     <path d="M761 121h56" stroke="#80bdff" stroke-width="2"/>
