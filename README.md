@@ -1,31 +1,31 @@
 <p align="center">
-  <img src="assets/hero.svg" width="900" alt="Assistant Showcase: Arrived is not delivered. A personal agent that follows through.">
+  <img src="assets/hero.svg" width="900" alt="Assistant Showcase: Help before I ask. Act only within scope. A personal agent for trust and anticipation.">
 </p>
 
 <p align="center">
-  <a href="#see-it-work">Run the demo</a> · <a href="CASE_STUDY.md">Read the case study</a> · <a href="VERIFICATION.md">Check the evidence</a>
+  <a href="#trust-and-anticipation">The design</a> · <a href="#one-behavior-you-can-test">Run the demo</a> · <a href="VERIFICATION.md">Evidence and limits</a>
 </p>
 
-## The mistake that changed the design
+## Trust and anticipation
 
-My assistant reported a parcel as checked in when the courier had only dropped it at a forwarding warehouse. I caught it in daily use and defined what evidence should count at each step. Coding agents implemented the workflow; I tested its behavior and directed the fixes.
+I’m building a personal assistant that can notice what matters before I ask, without assuming that noticing something gives it permission to act.
 
-| What the assistant sees | What it does |
-| --- | --- |
-| Courier reports warehouse arrival | Mark the inbound leg complete. **Keep the order open.** |
-| Warehouse confirms registration | Record a separate milestone. The order is still open. |
-| Courier confirms final delivery | **Close tracking.** |
-| The same evidence arrives again | **Send zero new alerts.** |
+- **Trust: earn permission one kind of action at a time.** Knowing my hotel preferences is not permission to book or cancel. The prototype tracks authority by action and context so that a success, mistake or revocation affects only the relevant permission. The mechanism has offline tests; broader live enforcement is still in progress.
+- **Anticipation: speak when the update changes what I can do.** The assistant already follows selected workflows in daily use. The next step is to carry open tasks across conversations, surface changes while there’s time to act, and stay quiet when nothing has changed. That broader task and follow-up system is still in design.
 
-## See it work
+I define the behavior, test it in daily use and decide what to change. Coding agents propose designs and implement and test the software. [Who did what](CONTRIBUTIONS.md)
 
-Run both lines against a fresh demo state file. Python 3.11+; no dependencies or keys.
+## One behavior you can test
+
+Package tracking is one example, not the whole assistant. A courier’s warehouse scan once sounded like a confirmed check-in. I caught it and made that distinction a requirement: **arrival keeps the order open; final delivery closes it; replaying old evidence should not notify me again.**
+
+With Python 3.11+, run these two commands against the same fresh demo database:
 
 ```sh
 python demo/assistant_demo.py --state .demo-state/showcase.sqlite3 --scenario delivered
 python demo/assistant_demo.py --state .demo-state/showcase.sqlite3 --scenario delivered
 ```
 
-The first run closes the order. The second reports `"notifications": 0`. The offline demo uses fictional data and sends no messages. In the live assistant, carrier arrival, a ledger update, and a notification were verified together; that check did not establish full end-to-end final delivery.
+The second run reports `"notifications": 0`. This uses fictional data, sends no messages, and does **not** run the trust or anticipation systems.
 
-[Lost-acknowledgement demo](demo/README.md#try-uncertain-delivery) · [Architecture](ARCHITECTURE.md) · [Travel preferences and trust research](TRAVEL_CASE_STUDY.md) · [Contributions](CONTRIBUTIONS.md)
+[Package case study](CASE_STUDY.md) · [Travel preferences and scoped trust](TRAVEL_CASE_STUDY.md) · [Architecture](ARCHITECTURE.md)
