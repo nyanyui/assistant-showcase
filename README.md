@@ -1,52 +1,31 @@
-# Assistant Showcase
-
 <p align="center">
-  <img src="assets/hero.svg" width="1000" alt="Less remembering. More follow-through. A personal assistant showcase.">
+  <img src="assets/hero.svg" width="900" alt="Assistant Showcase: Help before I ask. Act only within scope. A personal agent for trust and anticipation.">
 </p>
 
-**A personal assistant developed through human direction, coding agents and feedback from everyday use.**
-
-I defined the workflows, tested the assistant in use and refined its behavior.
-Coding agents proposed technical designs, implemented the code and ran automated checks.
-
-## From email to follow-through
-
-An inbox summary still leaves the tracking to me. The goal: remember the order,
-follow its progress and surface useful changes.
-
-The **offline synthetic demo** makes the important distinctions visible:
-
 <p align="center">
-  <img src="assets/workflow.svg" width="560" alt="Synthetic workflow: save a receipt quietly and track shipment; distinguish carrier arrival from warehouse registration; track forwarding and close only after final delivery.">
+  <a href="#trust-and-anticipation">The design</a> · <a href="#one-behavior-you-can-test">Run the demo</a> · <a href="VERIFICATION.md">Evidence and limits</a>
 </p>
 
-Warehouse arrival is not registration or final delivery. Repeated observations
-do not create repeat alerts; uncertain sends remain held.
+## Trust and anticipation
 
-## Two case studies
+I’m building a personal assistant that can notice what matters before I ask, without assuming that noticing something gives it permission to act.
 
-| Case | What I shaped |
-| --- | --- |
-| **[Email → package tracking](CASE_STUDY.md)** | Useful alerts, concise order names and source-backed milestones |
-| **[Travel → reusable preferences](TRAVEL_CASE_STUDY.md)** | Defaults, exceptions and alternatives that reduce repeated decisions |
+- **Trust: earn permission one kind of action at a time.** Knowing my hotel preferences is not permission to book or cancel. The prototype tracks authority by action and context so that a success, mistake or revocation affects only the relevant permission. The mechanism has offline tests; broader live enforcement is still in progress.
+- **Anticipation: speak when the update changes what I can do.** The assistant already follows selected workflows in daily use. The next step is to carry open tasks across conversations, surface changes while there’s time to act, and stay quiet when nothing has changed. That broader task and follow-up system is still in design.
 
-The travel case also introduces **scoped trust**, a separate offline-tested
-prototype with live integration still in progress.
+I define the behavior, test it in daily use and decide what to change. Coding agents propose designs and implement and test the software. [Who did what](CONTRIBUTIONS.md)
 
-## Try it
+## One behavior you can test
 
-Python 3.11+. No dependencies, API keys or network access.
+Package tracking is one example, not the whole assistant. A courier’s warehouse scan once sounded like a confirmed check-in. I caught it and made that distinction a requirement: **arrival keeps the order open; final delivery closes it; replaying old evidence should not notify me again.**
+
+With Python 3.11+, run these two commands against the same fresh demo database:
 
 ```sh
-python demo/assistant_demo.py --scenario delivered
-python -m unittest discover -s tests -v
+python demo/assistant_demo.py --state .demo-state/showcase.sqlite3 --scenario delivered
+python demo/assistant_demo.py --state .demo-state/showcase.sqlite3 --scenario delivered
 ```
 
-**12 synthetic tests passed.** Extraction and naming are supplied as fictional
-inputs; this demo does not measure AI accuracy or exercise live services.
-[Stages, replay and failure scenarios →](demo/README.md)
+The second run reports `"notifications": 0`. This uses fictional data, sends no messages, and does **not** run the trust or anticipation systems.
 
-[Architecture](ARCHITECTURE.md) · [Who did what](CONTRIBUTIONS.md) · [Evidence and limits](VERIFICATION.md)
-
-Newly written showcase code and synthetic data only. The private assistant's
-source, history and live records are not included.
+[Package case study](CASE_STUDY.md) · [Travel preferences and scoped trust](TRAVEL_CASE_STUDY.md) · [Architecture](ARCHITECTURE.md)
