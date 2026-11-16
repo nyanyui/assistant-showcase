@@ -1,52 +1,31 @@
-# Assistant Showcase
-
 <p align="center">
-  <img src="assets/hero.svg" width="1000" alt="Less remembering. More follow-through. A personal assistant showcase.">
+  <img src="assets/hero.svg" width="900" alt="Assistant Showcase: Arrived is not delivered. A personal agent that follows through.">
 </p>
 
-**A personal assistant developed through human direction, coding agents and feedback from everyday use.**
-
-I defined the workflows, tested the assistant in use and refined its behavior.
-Coding agents proposed technical designs, implemented the code and ran automated checks.
-
-## From email to follow-through
-
-An inbox summary still leaves the tracking to me. The goal: remember the order,
-follow its progress and surface useful changes.
-
-The **offline synthetic demo** makes the important distinctions visible:
-
 <p align="center">
-  <img src="assets/workflow.svg" width="560" alt="Synthetic workflow: save a receipt quietly and track shipment; distinguish carrier arrival from warehouse registration; track forwarding and close only after final delivery.">
+  <a href="#see-it-work">Run the demo</a> · <a href="CASE_STUDY.md">Read the case study</a> · <a href="VERIFICATION.md">Check the evidence</a>
 </p>
 
-Warehouse arrival is not registration or final delivery. Repeated observations
-do not create repeat alerts; uncertain sends remain held.
+## The mistake that changed the design
 
-## Two case studies
+My assistant reported a parcel as checked in when the courier had only dropped it at a forwarding warehouse. I caught it in daily use and defined what evidence should count at each step. Coding agents implemented the workflow; I tested its behavior and directed the fixes.
 
-| Case | What I shaped |
+| What the assistant sees | What it does |
 | --- | --- |
-| **[Email → package tracking](CASE_STUDY.md)** | Useful alerts, concise order names and source-backed milestones |
-| **[Travel → reusable preferences](TRAVEL_CASE_STUDY.md)** | Defaults, exceptions and alternatives that reduce repeated decisions |
+| Courier reports warehouse arrival | Mark the inbound leg complete. **Keep the order open.** |
+| Warehouse confirms registration | Record a separate milestone. The order is still open. |
+| Courier confirms final delivery | **Close tracking.** |
+| The same evidence arrives again | **Send zero new alerts.** |
 
-The travel case also introduces **scoped trust**, a separate offline-tested
-prototype with live integration still in progress.
+## See it work
 
-## Try it
-
-Python 3.11+. No dependencies, API keys or network access.
+Run both lines against a fresh demo state file. Python 3.11+; no dependencies or keys.
 
 ```sh
-python demo/assistant_demo.py --scenario delivered
-python -m unittest discover -s tests -v
+python demo/assistant_demo.py --state .demo-state/showcase.sqlite3 --scenario delivered
+python demo/assistant_demo.py --state .demo-state/showcase.sqlite3 --scenario delivered
 ```
 
-**12 synthetic tests passed.** Extraction and naming are supplied as fictional
-inputs; this demo does not measure AI accuracy or exercise live services.
-[Stages, replay and failure scenarios →](demo/README.md)
+The first run closes the order. The second reports `"notifications": 0`. The offline demo uses fictional data and sends no messages. In the live assistant, carrier arrival, a ledger update, and a notification were verified together; that check did not establish full end-to-end final delivery.
 
-[Architecture](ARCHITECTURE.md) · [Who did what](CONTRIBUTIONS.md) · [Evidence and limits](VERIFICATION.md)
-
-Newly written showcase code and synthetic data only. The private assistant's
-source, history and live records are not included.
+[Lost-acknowledgement demo](demo/README.md#try-uncertain-delivery) · [Architecture](ARCHITECTURE.md) · [Travel preferences and trust research](TRAVEL_CASE_STUDY.md) · [Contributions](CONTRIBUTIONS.md)
